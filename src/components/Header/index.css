@@ -1,0 +1,121 @@
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100vw;
+}
+
+@media (min-width: 768px) {
+  .nav-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.nav-bar-logo-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-bar-website-logo {
+  height: 28px;
+  width: 34px;
+}
+@media (min-width: 768px) {
+  .nav-bar-website-logo {
+    height: 39px;
+    width: 49px;
+  }
+}
+.nav-bar-website-name {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f7931e;
+  margin-left: 6px;
+}
+@media (min-width: 768px) {
+  .nav-bar-website-name {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+.nav-link {
+  text-decoration: none;
+}
+
+.active-link {
+  color: #f7931e;
+}
+.nav-link-para {
+  margin-right: 20px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+}
+.nav-bar-logout-button {
+  width: 73px;
+  height: 32px;
+  background-color: #f7931e;
+  border-radius: 8px;
+  border-width: 0px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+  outline: none;
+}
+.nav-bar-hamburger-menu {
+  font-size: 24px;
+}
+@media (min-width: 768px) {
+  .mobile-hamburger-icon-card {
+    display: none;
+  }
+}
+.nav-bar-tablet-view-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  padding: 10px 30px 10px 30px;
+}
+.nav-bar-mobile-links-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 10px 30px 10px 30px;
+}
+@media (min-width: 768px) {
+  .nav-bar-mobile-links-card {
+    display: none;
+  }
+}
+.nav-links-card {
+  display: flex;
+  align-items: center;
+}
+.nav-links-tablet-card {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .nav-links-tablet-card {
+    display: none;
+  }
+}
+.menu-toggle-button {
+  cursor: pointer;
+  outline: none;
+  border-width: 0px;
+  background-color: transparent;
+}
