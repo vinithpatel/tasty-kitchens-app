@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import Slider from 'react-slick'
-import {BsFilterLeft} from 'react-icons/bs'
+import {BsFilterLeft, BsSearch} from 'react-icons/bs'
 import {AiOutlineLeft, AiOutlineRight} from 'react-icons/ai'
 
 import Header from '../Header'
@@ -143,6 +143,14 @@ class Home extends Component {
     )
   }
 
+  onClickSearchButton = () => {
+    this.getRestaurantsList()
+  }
+
+  onChangeSearchValue = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
   onClickLeftPagination = () => {
     this.setState(prevState => {
       const {activePageNumber} = prevState
@@ -262,22 +270,43 @@ class Home extends Component {
   }
 
   renderRestaurants = () => {
-    const {restaurantsList, sortByOption, activePageNumber} = this.state
+    const {
+      restaurantsList,
+      sortByOption,
+      activePageNumber,
+      searchInput,
+    } = this.state
     const {total} = restaurantsList
 
     return (
       <div className="restaurants-bg-container">
+        <div className="popular-restaurants-heading-container">
+          <h1 className="Popular-restaurants-heading">Popular Restaurants</h1>
+          <p className="popular-restaurants-para">
+            Select Your favourite restaurant special dish and make your day
+            happy...
+          </p>
+        </div>
         <div className="popular-restaurants-top-container">
-          <div className="popular-restaurants-heading-container">
-            <h1 className="Popular-restaurants-heading">Popular Restaurants</h1>
-            <p className="popular-restaurants-para">
-              Select Your favourite restaurant special dish and make your day
-              happy...
-            </p>
+          <div className="search-input-container">
+            <input
+              type="search"
+              className="search-input"
+              placeholder="Search For Restaurants"
+              value={searchInput}
+              onChange={this.onChangeSearchValue}
+            />
+            <button
+              className="search-button"
+              type="button"
+              onClick={this.onClickSearchButton}
+            >
+              <BsSearch className="search-icon" />
+            </button>
           </div>
           <div className="sort-by-filter-card">
             <BsFilterLeft className="filter-icon" />
-            Sort by
+            <p>Sort by</p>
             <select
               className="sort-by-filter"
               value={sortByOption}
@@ -291,6 +320,7 @@ class Home extends Component {
             </select>
           </div>
         </div>
+
         {this.renderPopularRestaurants()}
         <div className="pagination-container">
           <button
