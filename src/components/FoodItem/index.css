@@ -1,0 +1,117 @@
+.food-item-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .food-item-container {
+    width: 45%;
+    margin-right: 30px;
+  }
+}
+@media (min-width: 992px) {
+  .food-item-container {
+    width: 450px;
+  }
+}
+.food-item-image-card {
+  width: 160px;
+  height: 100px;
+}
+@media (min-width: 768px) {
+  .food-item-image-card {
+    width: 255px;
+    height: 150px;
+  }
+}
+.food-item-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.food-item-details-card {
+  height: 100px;
+  margin-left: 16px;
+}
+
+@media (min-width: 768px) {
+  .food-item-details-card {
+    height: 160px;
+    margin-left: 30px;
+  }
+}
+
+.food-item-name {
+  font-family: 'DM Sans';
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0px;
+  letter-spacing: 0.2px;
+
+  color: #334155;
+}
+
+.food-item-price-card {
+  display: flex;
+  align-items: center;
+}
+.food-item-cost {
+  font-family: 'DM Sans';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #334155;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+  .food-item-name {
+    font-size: 18px;
+  }
+  .food-item-cost {
+    font-size: 16px;
+  }
+}
+
+.add-food-item-button {
+  width: 65px;
+  height: 32px;
+  border: 2px solid #ffa412;
+  border-radius: 10px;
+  color: #ffa412;
+  font-family: 'Inter';
+  background-color: #ffffff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.food-item-quantity-control-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80px;
+  margin-top: 0px;
+  padding: 0px;
+}
+.food-item-quantity-control-button {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+  outline: none;
+}
+.food-item-quantity-count {
+  color: #3e4c59;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}

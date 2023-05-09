@@ -6,6 +6,7 @@ import {BiRupee} from 'react-icons/bi'
 
 import Header from '../Header'
 import Footer from '../Footer'
+import FoodItem from '../FoodItem'
 
 import './index.css'
 
@@ -148,6 +149,13 @@ class RestaurantDetails extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className="food-items-container">
+          <ul className="list-of-food-items">
+            {foodItems.map(eachObj => (
+              <FoodItem key={eachObj.id} foodItemDetails={eachObj} />
+            ))}
+          </ul>
         </div>
       </>
     )

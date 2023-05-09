@@ -3,12 +3,12 @@
 }
 .restaurant-details-card {
   width: 100vw;
-  height: 188px;
+  height: 200px;
   background-color: #333333;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
 }
 @media (min-width: 768px) {
@@ -140,5 +140,40 @@
   .restaurant-details-reviews-count {
     font-size: 12px;
     line-height: 16px;
+  }
+}
+.food-items-container {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .food-items-container {
+    padding: 20px 40px 20px 40px;
+  }
+}
+.list-of-food-items {
+  list-style-type: none;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .list-of-food-items {
+    width: 768px;
+    padding: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 1200px) {
+  .list-of-food-items {
+    width: 1200px;
+    padding: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
