@@ -1,0 +1,146 @@
+.cart-bg-container {
+  min-height: 80vh;
+}
+.cart-items-view-bg-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.cart-items-container {
+  width: 90%;
+  background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .cart-items-container {
+    background-color: #f9fbfe;
+    width: 70%;
+    border: 2px solid #f9fbfe;
+    padding: 40px;
+  }
+  .cart-items-view-bg-container {
+    padding: 40px 0px 40px 0px;
+  }
+}
+
+.cart-items-tablet-view {
+  width: 100%;
+}
+
+.cart-items-headings-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .cart-items-headings-card {
+    display: none;
+  }
+}
+
+.cart-item-heading {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+
+  letter-spacing: 0.2px;
+  width: 30%;
+  color: #475569;
+  text-align: center;
+}
+
+.list-of-cart-items {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.cart-horizental-rule {
+  border: 1px dashed #cbd2d9;
+}
+
+.order-summary-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-total-heading {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #3e4c59;
+}
+
+@media (min-width: 768px) {
+  .order-total-heading {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+
+.cart-price-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: auto;
+}
+
+.total-cost-icon {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #3e4c59;
+}
+
+.total-cost {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #3e4c59;
+}
+
+@media (min-width: 768px) {
+  .total-cost-icon {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .total-cost {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.place-order-button {
+  width: 99px;
+  height: 32px;
+
+  background: #f7931e;
+  border-radius: 8px;
+  border-width: 0px;
+  cursor: pointer;
+  outline: NONE;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+}

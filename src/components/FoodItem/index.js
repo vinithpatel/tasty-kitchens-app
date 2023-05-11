@@ -8,22 +8,81 @@ class FoodItem extends Component {
     quantity: 0,
   }
 
+  getLocalStorageData = () => {
+    const cartData = localStorage.getItem('cartData')
+
+    if (cartData !== null) {
+      const parsedData = JSON.parse(cartData)
+      return parsedData
+    }
+
+    return []
+  }
+
   onClickAddButton = () => {
+    const {foodItemDetails} = this.props
+    const parsedCartData = this.getLocalStorageData()
+
+    const foodItem = {
+      ...foodItemDetails,
+      quantity: 1,
+    }
+
+    parsedCartData.push(foodItem)
+
+    localStorage.setItem('cartData', JSON.stringify(parsedCartData))
+
     this.setState({quantity: 1})
   }
 
   onDecrementQuantity = () => {
+    const {foodItemDetails} = this.props
+    const {id} = foodItemDetails
+
+    const parsedCartData = this.getLocalStorageData()
+
     this.setState(prevState => {
       const {quantity} = prevState
       if (quantity > 1) {
+        const updatedData = parsedCartData.map(eachObj => {
+          if (eachObj.id === id) {
+            return {
+              ...eachObj,
+              quantity: eachObj.quantity - 1,
+            }
+          }
+          return eachObj
+        })
+
+        localStorage.setItem('cartData', JSON.stringify(updatedData))
         return {quantity: quantity - 1}
       }
+
+      const filteredData = parsedCartData.filter(eachObj => eachObj.id !== id)
+      localStorage.setItem('cartData', JSON.stringify(filteredData))
 
       return {quantity: 0}
     })
   }
 
   onIncrementQuantity = () => {
+    const {foodItemDetails} = this.props
+    const {id} = foodItemDetails
+
+    const parsedCartData = this.getLocalStorageData()
+
+    const updatedData = parsedCartData.map(eachObj => {
+      if (eachObj.id === id) {
+        return {
+          ...eachObj,
+          quantity: eachObj.quantity + 1,
+        }
+      }
+      return eachObj
+    })
+
+    localStorage.setItem('cartData', JSON.stringify(updatedData))
+
     this.setState(prevState => ({quantity: prevState.quantity + 1}))
   }
 
