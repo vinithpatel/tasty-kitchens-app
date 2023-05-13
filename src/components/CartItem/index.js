@@ -47,8 +47,8 @@ const CartItem = props => {
   )
 
   return (
-    <li className="cart-item" testid="cartItem">
-      <div className="cart-item-tablet-view">
+    <li className="cart-item">
+      <div className="cart-item-tablet-view" testid="cartItem">
         <div className="cart-item-name-card">
           <img className="cart-item-img" src={imageUrl} alt="" />
           <h1 className="cart-item-name">{name}</h1>
