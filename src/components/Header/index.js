@@ -85,7 +85,11 @@ class Header extends Component {
               >
                 <p className="nav-link-para">Cart</p>
               </Link>
-              <button className="nav-bar-logout-button" type="button">
+              <button
+                className="nav-bar-logout-button"
+                type="button"
+                onClick={this.onClickLogout}
+              >
                 Logout
               </button>
             </div>

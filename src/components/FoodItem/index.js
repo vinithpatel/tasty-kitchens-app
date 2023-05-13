@@ -95,18 +95,18 @@ class FoodItem extends Component {
           type="button"
           className="food-item-quantity-control-button"
           onClick={this.onDecrementQuantity}
-          data-testid="decrement-count"
+          testid="decrement-count"
         >
           -
         </button>
-        <p className="food-item-quantity-count" data-testid="active-count">
+        <p className="food-item-quantity-count" testid="active-count">
           {quantity}
         </p>
         <button
           type="button"
           className="food-item-quantity-control-button"
           onClick={this.onIncrementQuantity}
-          data-testid="decrement-count"
+          testid="increment-count"
         >
           +
         </button>
@@ -117,10 +117,10 @@ class FoodItem extends Component {
   render() {
     const {quantity} = this.state
     const {foodItemDetails} = this.props
-    const {name, foodType, cost, imageUrl, id} = foodItemDetails
+    const {name, cost, imageUrl} = foodItemDetails
 
     return (
-      <li className="food-item-container" data-testid="foodItem">
+      <li className="food-item-container" testid="foodItem">
         <div className="food-item-image-card">
           <img className="food-item-image" src={imageUrl} alt="" />
         </div>
@@ -128,11 +128,12 @@ class FoodItem extends Component {
           <h1 className="food-item-name">{name}</h1>
           <div className="food-item-price-card">
             <BiRupee className="food-item-cost-icon" />
-            <p className="food-item-cost">{cost}.00</p>
+            <p className="food-item-cost">{cost}</p>
           </div>
 
           {quantity === 0 ? (
             <button
+              type="button"
               className="add-food-item-button"
               onClick={this.onClickAddButton}
             >

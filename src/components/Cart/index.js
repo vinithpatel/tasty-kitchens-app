@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import {BiRupee} from 'react-icons/bi'
@@ -95,6 +96,11 @@ class Cart extends Component {
     this.getCartItems()
   }
 
+  onClickPlaceOrder = () => {
+    localStorage.setItem('cartData', JSON.stringify([]))
+    this.setState({cartStatus: cartStatusConstants.orderPlaced})
+  }
+
   getCartResources = () => {
     const {cartStatus} = this.state
 
@@ -109,6 +115,48 @@ class Cart extends Component {
         return this.renderLoader()
     }
   }
+
+  renderOrderPlacedView = () => (
+    <div className="order-placed-bg-container">
+      <div className="order-placed-container">
+        <img
+          className="order-placed-img"
+          src="https://res.cloudinary.com/dlddaunc2/image/upload/v1683968437/Tasty%20Kitchens%20Project/Cart/Vector_1_ycolxu.png"
+          alt="order placed"
+        />
+        <h1 className="order-placed-heading">Payment Successful</h1>
+        <p className="order-placed-para">
+          Thank you for ordering Your payment is successfully completed.
+        </p>
+        <Link to="/">
+          <button type="button" className="go-to-home-page-button">
+            Go To Home Page
+          </button>
+        </Link>
+      </div>
+    </div>
+  )
+
+  renderCartEmptyView = () => (
+    <div className="cart-empty-view-bg-container">
+      <div className="cart-empty-view-container">
+        <img
+          className="cart-empty-view-img"
+          src="https://res.cloudinary.com/dlddaunc2/image/upload/v1683964690/Tasty%20Kitchens%20Project/Cart/cooking_1_f0tssu.jpg"
+          alt="empty cart"
+        />
+        <h1 className="cart-empty-heading">No Order Yet!</h1>
+        <p className="cart-empty-para">
+          Your cart is empty. Add something from the menu.
+        </p>
+        <Link to="/">
+          <button type="button" className="cart-empty-order-now-button">
+            Order Now
+          </button>
+        </Link>
+      </div>
+    </div>
+  )
 
   renderLoader = () => (
     <div className="offers-loader">
@@ -139,13 +187,21 @@ class Cart extends Component {
           </ul>
           <hr className="cart-horizental-rule" />
           <div className="order-summary-card">
-            <h1 className="order-total-heading">Order Total :</h1>
+            <h1 className="order-total-heading">Order Total:</h1>
             <div className="cart-total-price-card">
               <div className="cart-price-card">
                 <BiRupee className="total-cost-icon" />
-                <p className="total-cost">{this.getTotalCost()}.00</p>
+                <p className="total-cost" testid="total-price">
+                  {this.getTotalCost()}.00
+                </p>
               </div>
-              <button className="place-order-button">Place Order</button>
+              <button
+                type="button"
+                className="place-order-button"
+                onClick={this.onClickPlaceOrder}
+              >
+                Place Order
+              </button>
             </div>
           </div>
         </div>
@@ -154,13 +210,10 @@ class Cart extends Component {
   }
 
   render() {
-    const {isOrderPlaced} = this.state
     return (
       <>
         <Header activePage="Cart" />
-        <div className="cart-bg-container">
-          {!isOrderPlaced && this.getCartResources()}
-        </div>
+        <div className="cart-bg-container">{this.getCartResources()}</div>
         <Footer />
       </>
     )

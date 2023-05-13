@@ -19,15 +19,19 @@ export default function Footer() {
         <h1 className="footer-website-name">Tasty Kitchens</h1>
       </div>
       <p className="footer-para">
-        The only thing we are serious about is food.
-        <br />
-        Contact us on
+        The only thing we are serious about is food. Contact us on
       </p>
       <div className="social-icons-card">
-        <FaPinterestSquare className="social-icon" />
-        <FaInstagram className="social-icon" />
-        <FaTwitter className="social-icon" />
-        <FaFacebookSquare className="social-icon" />
+        <FaPinterestSquare
+          className="social-icon"
+          testid="pintrest-social-icon"
+        />
+        <FaInstagram className="social-icon" testid="instagram-social-icon" />
+        <FaTwitter className="social-icon" testid="twitter-social-icon" />
+        <FaFacebookSquare
+          className="social-icon"
+          testid="facebook-social-icon"
+        />
       </div>
     </div>
   )

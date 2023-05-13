@@ -201,7 +201,7 @@ class Home extends Component {
   }
 
   renderOffersLoader = () => (
-    <div className="offers-loader" data-testid="restaurants-offers-loader">
+    <div className="offers-loader" testid="restaurants-offers-loader">
       <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
     </div>
   )
@@ -247,7 +247,7 @@ class Home extends Component {
   )
 
   renderRestaurentListLoader = () => (
-    <div className="offers-loader" data-testid="restaurants-list-loader">
+    <div className="offers-loader" testid="restaurants-list-loader">
       <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
     </div>
   )
@@ -325,7 +325,7 @@ class Home extends Component {
         <div className="pagination-container">
           <button
             className="pagination-button"
-            data-testid="pagination-left-button"
+            testid="pagination-left-button"
             onClick={this.onClickLeftPagination}
             disabled={activePageNumber === 1}
             type="button"
@@ -333,12 +333,12 @@ class Home extends Component {
             <AiOutlineLeft />
           </button>
           <p className="pagination-para">
-            <span data-testid="active-page-number">{activePageNumber}</span> of{' '}
+            <span testid="active-page-number">{activePageNumber}</span> of{' '}
             {Math.ceil(total / 9)}
           </p>
           <button
             className="pagination-button"
-            data-testid="pagination-right-button"
+            testid="pagination-right-button"
             onClick={this.onClickRightPagination}
             disabled={activePageNumber > total / 9}
             type="button"

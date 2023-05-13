@@ -12,7 +12,7 @@ const Restaurant = props => {
 
   return (
     <Link to={path} className="restaurant-link">
-      <li className="restaurant-bg-container" data-testid="restaurant-item">
+      <li className="restaurant-bg-container" testid="restaurant-item">
         <div className="restaurant-img-card">
           <img className="restaurant-img" src={imageUrl} alt="restaurant" />
         </div>
