@@ -83,11 +83,10 @@ class Login extends Component {
     }
     return (
       <div className="login-bg-container">
-        <div className="login-mobile-landing-img-container">
-          <h1 className="login-mobile-heading">Login</h1>
+        <div className="login-landing-img-container">
           <img
-            className="login-mobile-landing-img"
-            src="https://res.cloudinary.com/dlddaunc2/image/upload/v1683006403/Tasty%20Kitchens%20Project/login/Rectangle_1457_yjygcp.jpg"
+            className="login-landing-img"
+            src="https://res.cloudinary.com/dlddaunc2/image/upload/v1683006267/Tasty%20Kitchens%20Project/login/Rectangle_1456_yv9ram.jpg"
             alt="website login"
           />
         </div>
@@ -102,8 +101,8 @@ class Login extends Component {
                 />
                 <h1 className="login-form-website-name">Tasty Kitchens</h1>
               </div>
-              <h1 className="login-tablet-heading">Login</h1>
             </div>
+            <h1 className="login-heading">Login</h1>
             <div className="user-input-container">
               <label className="user-input-label" htmlFor="username">
                 USERNAME
@@ -139,13 +138,6 @@ class Login extends Component {
               )}
             </div>
           </form>
-        </div>
-        <div className="login-tablet-landing-img-container">
-          <img
-            className="login-tablet-landing-img"
-            src="https://res.cloudinary.com/dlddaunc2/image/upload/v1683006267/Tasty%20Kitchens%20Project/login/Rectangle_1456_yv9ram.jpg"
-            alt="website login"
-          />
         </div>
       </div>
     )

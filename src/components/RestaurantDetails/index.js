@@ -81,7 +81,7 @@ class RestaurantDetails extends Component {
   }
 
   renderLoader = () => (
-    <div className="offers-loader" testid="restaurant-details-loader">
+    <div className="offers-loader" data-testid="restaurant-details-loader">
       <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
     </div>
   )
@@ -100,7 +100,7 @@ class RestaurantDetails extends Component {
   }
 
   renderLoader = () => (
-    <div className="offers-loader" testid="restaurant-details-loader">
+    <div className="offers-loader" data-testid="restaurant-details-loader">
       <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
     </div>
   )
@@ -116,7 +116,7 @@ class RestaurantDetails extends Component {
       reviewsCount,
 
       location,
-      itemsCount,
+
       foodItems,
     } = restaurantDetails
 

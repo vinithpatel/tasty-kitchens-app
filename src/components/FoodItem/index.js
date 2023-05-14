@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {BiRupee} from 'react-icons/bi'
+import {AiFillStar} from 'react-icons/ai'
 
 import './index.css'
 
@@ -95,18 +96,18 @@ class FoodItem extends Component {
           type="button"
           className="food-item-quantity-control-button"
           onClick={this.onDecrementQuantity}
-          testid="decrement-count"
+          data-testid="decrement-count"
         >
           -
         </button>
-        <p className="food-item-quantity-count" testid="active-count">
+        <p className="food-item-quantity-count" data-testid="active-count">
           {quantity}
         </p>
         <button
           type="button"
           className="food-item-quantity-control-button"
           onClick={this.onIncrementQuantity}
-          testid="increment-count"
+          data-testid="increment-count"
         >
           +
         </button>
@@ -117,10 +118,10 @@ class FoodItem extends Component {
   render() {
     const {quantity} = this.state
     const {foodItemDetails} = this.props
-    const {name, cost, imageUrl} = foodItemDetails
+    const {name, cost, imageUrl, rating} = foodItemDetails
 
     return (
-      <li className="food-item-container" testid="foodItem">
+      <li className="food-item-container" data-testid="foodItem">
         <div className="food-item-image-card">
           <img className="food-item-image" src={imageUrl} alt="" />
         </div>
@@ -129,6 +130,10 @@ class FoodItem extends Component {
           <div className="food-item-price-card">
             <BiRupee className="food-item-cost-icon" />
             <p className="food-item-cost">{cost}</p>
+          </div>
+          <div className="food-item-rating-card">
+            <AiFillStar className="food-item-rating-icon" />
+            <p className="food-item-rating">{rating}</p>
           </div>
 
           {quantity === 0 ? (

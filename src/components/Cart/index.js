@@ -191,7 +191,7 @@ class Cart extends Component {
             <div className="cart-total-price-card">
               <div className="cart-price-card">
                 <BiRupee className="total-cost-icon" />
-                <p className="total-cost" testid="total-price">
+                <p className="total-cost" data-testid="total-price">
                   {this.getTotalCost()}.00
                 </p>
               </div>
