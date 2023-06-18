@@ -240,3 +240,24 @@
   border-bottom-right-radius: 8px;
   padding: 5px;
 }
+
+.restaurants-failure-view-bg-container {
+  height: 300px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurants-failure-view-heading {
+  font-family: 'Roboto';
+
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .restaurants-failure-view-heading {
+    font-size: 24px;
+  }
+}

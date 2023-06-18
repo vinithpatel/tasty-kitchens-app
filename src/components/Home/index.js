@@ -123,11 +123,13 @@ class Home extends Component {
         total: data.total,
       }
 
-      console.log(camelCaseData)
-
       this.setState({
         restaurantsApiStatus: apiStatusConstants.success,
         restaurantsList: camelCaseData,
+      })
+    } else {
+      this.setState({
+        restaurantsApiStatus: apiStatusConstants.failure,
       })
     }
   }
@@ -144,11 +146,17 @@ class Home extends Component {
   }
 
   onClickSearchButton = () => {
-    this.getRestaurantsList()
+    this.setState({activePageNumber: 1}, this.getRestaurantsList)
   }
 
   onChangeSearchValue = event => {
     this.setState({searchInput: event.target.value})
+  }
+
+  onKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.onClickSearchButton()
+    }
   }
 
   onClickLeftPagination = () => {
@@ -183,18 +191,6 @@ class Home extends Component {
         return this.renderOffersCarousel()
       case apiStatusConstants.failure:
         return this.renderOffersFailure()
-      default:
-        return null
-    }
-  }
-
-  getRestaurants = () => {
-    const {restaurantsApiStatus} = this.state
-    switch (restaurantsApiStatus) {
-      case apiStatusConstants.progress:
-        return this.renderRestaurentListLoader()
-      case apiStatusConstants.success:
-        return this.renderRestaurants()
       default:
         return null
     }
@@ -253,8 +249,9 @@ class Home extends Component {
   )
 
   renderPopularRestaurants = () => {
-    const {restaurantsList} = this.state
-    const {restaurants} = restaurantsList
+    const {restaurantsList, activePageNumber} = this.state
+    const {restaurants, total} = restaurantsList
+
     return (
       <div className="popular-restaurants-bg-container">
         <ul className="popular-restaurants-list">
@@ -265,63 +262,6 @@ class Home extends Component {
             />
           ))}
         </ul>
-      </div>
-    )
-  }
-
-  renderRestaurants = () => {
-    const {
-      restaurantsList,
-      sortByOption,
-      activePageNumber,
-      searchInput,
-    } = this.state
-    const {total} = restaurantsList
-
-    return (
-      <div className="restaurants-bg-container">
-        <div className="popular-restaurants-heading-container">
-          <h1 className="Popular-restaurants-heading">Popular Restaurants</h1>
-          <p className="popular-restaurants-para">
-            Select Your favourite restaurant special dish and make your day
-            happy...
-          </p>
-        </div>
-        <div className="popular-restaurants-top-container">
-          <div className="search-input-container">
-            <input
-              type="search"
-              className="search-input"
-              placeholder="Search For Restaurants"
-              value={searchInput}
-              onChange={this.onChangeSearchValue}
-            />
-            <button
-              className="search-button"
-              type="button"
-              onClick={this.onClickSearchButton}
-            >
-              <BsSearch className="search-icon" />
-            </button>
-          </div>
-          <div className="sort-by-filter-card">
-            <BsFilterLeft className="filter-icon" />
-            <p>Sort by</p>
-            <select
-              className="sort-by-filter"
-              value={sortByOption}
-              onChange={this.onChangeSortByOption}
-            >
-              {sortByOptions.map(eachOption => (
-                <option key={eachOption.id} value={eachOption.value}>
-                  {eachOption.displayText}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        {this.renderPopularRestaurants()}
         <div className="pagination-container">
           <button
             className="pagination-button"
@@ -350,13 +290,88 @@ class Home extends Component {
     )
   }
 
+  renderFailureView = () => (
+    <div className="restaurants-failure-view-bg-container">
+      <h1 className="restaurants-failure-view-heading">
+        Something Went Wrong. Try to Change Search
+      </h1>
+    </div>
+  )
+
+  getRestaurants = () => {
+    const {restaurantsApiStatus} = this.state
+
+    switch (restaurantsApiStatus) {
+      case apiStatusConstants.progress:
+        return this.renderRestaurentListLoader()
+      case apiStatusConstants.success:
+        return this.renderPopularRestaurants()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      default:
+        return null
+    }
+  }
+
+  renderRestaurants = () => {
+    const {sortByOption, searchInput} = this.state
+
+    return (
+      <div className="restaurants-bg-container">
+        <div className="popular-restaurants-heading-container">
+          <h1 className="Popular-restaurants-heading">Popular Restaurants</h1>
+          <p className="popular-restaurants-para">
+            Select Your favourite restaurant special dish and make your day
+            happy...
+          </p>
+        </div>
+        <div className="popular-restaurants-top-container">
+          <div className="search-input-container">
+            <input
+              type="search"
+              className="search-input"
+              placeholder="Search For Restaurants"
+              value={searchInput}
+              onChange={this.onChangeSearchValue}
+              onKeyDown={this.onKeyPress}
+            />
+            <button
+              className="search-button"
+              type="button"
+              onClick={this.onClickSearchButton}
+            >
+              <BsSearch className="search-icon" />
+            </button>
+          </div>
+          <div className="sort-by-filter-card">
+            <BsFilterLeft className="filter-icon" />
+            <p>Sort by</p>
+            <select
+              className="sort-by-filter"
+              value={sortByOption}
+              onChange={this.onChangeSortByOption}
+            >
+              {sortByOptions.map(eachOption => (
+                <option key={eachOption.id} value={eachOption.value}>
+                  {eachOption.displayText}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {this.getRestaurants()}
+      </div>
+    )
+  }
+
   render() {
     return (
       <>
         <Header activePage="Home" />
         <div className="home-bg-container">
           {this.getOffers()}
-          {this.getRestaurants()}
+          {this.renderRestaurants()}
         </div>
         <Footer />
       </>
