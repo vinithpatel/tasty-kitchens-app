@@ -215,17 +215,19 @@ class Home extends Component {
 
     return (
       <div className="carousel-container">
-        <Slider {...settings}>
-          {offersList.map(eachOffer => (
-            <div key={eachOffer.id} className="offer-card">
-              <img
-                className="offer-image"
-                src={eachOffer.image_url}
-                alt="offer"
-              />
-            </div>
-          ))}
-        </Slider>
+        <div className="slick-container">
+          <Slider {...settings}>
+            {offersList.map(eachOffer => (
+              <div key={eachOffer.id} className="offer-card">
+                <img
+                  className="offer-image"
+                  src={eachOffer.image_url}
+                  alt="offer"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     )
   }
