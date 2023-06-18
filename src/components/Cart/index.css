@@ -209,9 +209,9 @@
 
 @media (min-width: 768px) {
   .cart-empty-view-img {
-    width: 425px;
-    height: 367px;
+    width: 300px;
   }
+
   .cart-empty-heading {
     font-size: 32px;
     line-height: 48px;
