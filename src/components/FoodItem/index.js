@@ -123,7 +123,7 @@ class FoodItem extends Component {
     return (
       <li className="food-item-container" data-testid="foodItem">
         <div className="food-item-image-card">
-          <img className="food-item-image" src={imageUrl} alt="" />
+          <img className="food-item-image" src={imageUrl} alt="food item" />
         </div>
         <div className="food-item-details-card">
           <h1 className="food-item-name">{name}</h1>

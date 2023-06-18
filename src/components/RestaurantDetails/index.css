@@ -149,11 +149,7 @@
   align-items: center;
   justify-content: center;
 }
-@media (min-width: 768px) {
-  .food-items-container {
-    padding: 20px 40px 20px 40px;
-  }
-}
+
 .list-of-food-items {
   list-style-type: none;
   padding-left: 0px;
@@ -163,15 +159,7 @@
 
 @media (min-width: 768px) {
   .list-of-food-items {
-    width: 768px;
-    padding: 40px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
-@media (min-width: 1200px) {
-  .list-of-food-items {
-    width: 1200px;
+    width: 100%;
     padding: 40px;
     flex-direction: row;
     flex-wrap: wrap;

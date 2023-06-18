@@ -86,19 +86,6 @@ class RestaurantDetails extends Component {
     </div>
   )
 
-  getRestaurantsDetails = () => {
-    const {restaurantDetailsApiStatus} = this.state
-
-    switch (restaurantDetailsApiStatus) {
-      case apiStatusConstants.progress:
-        return this.renderLoader()
-      case apiStatusConstants.success:
-        return this.renderRestaurantDetails()
-      default:
-        return null
-    }
-  }
-
   renderLoader = () => (
     <div className="offers-loader" data-testid="restaurant-details-loader">
       <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
@@ -160,6 +147,19 @@ class RestaurantDetails extends Component {
         </div>
       </>
     )
+  }
+
+  getRestaurantsDetails = () => {
+    const {restaurantDetailsApiStatus} = this.state
+
+    switch (restaurantDetailsApiStatus) {
+      case apiStatusConstants.progress:
+        return this.renderLoader()
+      case apiStatusConstants.success:
+        return this.renderRestaurantDetails()
+      default:
+        return null
+    }
   }
 
   render() {
